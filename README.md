@@ -8,12 +8,19 @@
 #### Clone하여 사용하기
 1. Clone하기 ($ git clone https://github.com/oneybee/reactapp.git)
 2. 자신의 repository로 바꿔주기
+  
   $ cd reactapp
+  
   $ rm -rf .git
+  
   $ git init
+  
   $ git add .
+  
   $ git commit -m '버전이름'
+  
   $ git branch -m gh-pages
+  
   $ git remote add origin <repository url>
 3. repository basename 지정해주기
   텍스트 에디터를 이용해 /Src/index.js로 이동
@@ -22,15 +29,19 @@
   <BrowserRouter basename="/reactapp">
 
   "/reactapp" => "/repository 이름"  으로 변경해주기
+
 4. index.html에서 <script src="/reactapp/build/bundle.js"></script>
   "/build/bundle/js" => "/repositoryname/build/bundle.js" 로 변경해주기
+
 5. $ npm install
+
    $ npm run build
+
 6. add -> commit -> push 진행하기
 
 
 #### How it works
-When the GitHub Pages server gets a request for a path defined with frontend routes, e.g. `example.tld/foo`, it returns a custom `404.html` page. The [custom `404.html` page contains a script][404html] that takes the current url and converts the path and query string into just a query string, and then redirects the browser to the new url with only a query string and hash fragment. For example, `example.tld/one/two?a=b&c=d#qwe`, becomes `example.tld/?p=/one/two&q=a=b~and~c=d#qwe`.
+
 
 
 A quick SEO note - while it's never good to have a 404 response, it appears based on [Search Engine Land's testing][seoLand] that Google's crawler will treat the JavaScript `window.location` redirect in the `404.html` file the same as a 301 redirect for its indexing. From my testing I can confirm that Google will index all pages without issue, the only caveat is that the redirect query is what Google indexes as the url. For example, the url `example.tld/about` will get indexed as `example.tld/?p=/about`. When the user clicks on the search result, the url will change back to `example.tld/about` once the site loads.

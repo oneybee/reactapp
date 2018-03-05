@@ -17,7 +17,7 @@ export default function Home() {
     <div>
       <p style={s.p}>
         이 페이지는 '한발 먼저 가본 문과생이 알려주는, 데이터 시각화 - 아무것도 모르고 react 시작하기' 를 구현한 페이지입니다.
-        자신의 코드와 비교도 해보고 clone해서 뜯어보고 수정해보시면 봏은 공부가 될 것입니다.
+        자신의 코드와 비교도 해보고 clone해서 뜯어보고 수정해보시면 좋은 공부가 될 것입니다.
       </p>
       <p style={s.p}>
         한발 먼저 가본 문과생이 알려주는, 데이터 시각화 - 아무것도 모르고 react 시작하기{repoReadmeLink('repository readme')} 

@@ -32,8 +32,9 @@
 
     "/reactapp" => "/repository 이름"  으로 변경해주기
 
-4. index.html에서 <script src="/reactapp/build/bundle.js"></script>
-  "/build/bundle/js" => "/repositoryname/build/bundle.js" 로 변경해주기
+4. index.html에서 
+    <script src="/reactapp/build/bundle.js"></script> 부분을
+    "/build/bundle/js" => "/repositoryname/build/bundle.js" 로 변경해주기
 
 5. $ npm instal
 

@@ -7,9 +7,7 @@ import s from '../styles/exampleComponent.style';
 
 const ExamplePageText = () => (
   <p style={s.p}>
-    This is an example page. Refresh the page or copy/paste the url to
-    test out the redirect functionality (this same page should load
-      after the redirect).
+    여기는 Example Component 입니다. 자신이 원하는 글로 바꿔보세요.
   </p>
 );
 

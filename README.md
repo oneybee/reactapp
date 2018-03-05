@@ -1,16 +1,37 @@
-# Single Page Apps for GitHub Pages
+# 한발 먼저 가본 문과생이 알려주는, 데이터 시각화 - 아무것도 모르고 react 시작하기
 
-[Live example][liveExample]  
 
-This is a lightweight solution for deploying single page apps with [GitHub Pages][ghPagesOverview]. You can easily deploy a [React][react] single page app with [React Router][reactRouter] `<BrowserRouter />`, like the one in the [live example][liveExample], or a single page app built with any frontend library or framework.
 
-#### Why it's necessary
-GitHub Pages doesn't natively support single page apps. When there is a fresh page load for a url like `example.tld/foo`, where `/foo` is a frontend route, the GitHub Pages server returns 404 because it knows nothing of `/foo`.
+이 Repository는 '한발 먼저 가본 문과생이 알려주는, 데이터 시각화 - 아무것도 모르고 react 시작하기'의 예제 파일입니다. https://github.com/rafrex/spa-github-pages 을 많이 변경하지 않고 아티클만큼 구현된 repository입니다.
+ 이 코드들과 자신의 코드를 비교해봐도 좋고 clone하여 수정해봐도 좋은 방법입니다.
+
+#### Clone하여 사용하기
+1. Clone하기 ($ git clone https://github.com/oneybee/reactapp.git)
+2. 자신의 repository로 바꿔주기
+  $ cd reactapp
+  $ rm -rf .git
+  $ git init
+  $ git add .
+  $ git commit -m '버전이름'
+  $ git branch -m gh-pages
+  $ git remote add origin <repository url>
+3. repository basename 지정해주기
+  텍스트 에디터를 이용해 /Src/index.js로 이동
+   
+  ReactDOM.render(
+  <BrowserRouter basename="/reactapp">
+
+  "/reactapp" => "/repository 이름"  으로 변경해주기
+4. index.html에서 <script src="/reactapp/build/bundle.js"></script>
+  "/build/bundle/js" => "/repositoryname/build/bundle.js" 로 변경해주기
+5. $ npm install
+   $ npm run build
+6. add -> commit -> push 진행하기
+
 
 #### How it works
 When the GitHub Pages server gets a request for a path defined with frontend routes, e.g. `example.tld/foo`, it returns a custom `404.html` page. The [custom `404.html` page contains a script][404html] that takes the current url and converts the path and query string into just a query string, and then redirects the browser to the new url with only a query string and hash fragment. For example, `example.tld/one/two?a=b&c=d#qwe`, becomes `example.tld/?p=/one/two&q=a=b~and~c=d#qwe`.
 
-The GitHub Pages server receives the new request, e.g. `example.tld?p=/...`, ignores the query string and hash fragment and returns the `index.html` file, which has a [script that checks for a redirect in the query string][indexHtmlScript] before the single page app is loaded. If a redirect is present it is converted back into the correct url and added to the browser's history with `window.history.replaceState(...)`, but the browser won't attempt to load the new url. When the [single page app is loaded][indexHtmlSPA] further down in the `index.html` file, the correct url will be waiting in the browser's history for the single page app to route accordingly. (Note that these redirects are only needed with fresh page loads, and not when navigating within the single page app once it's loaded).
 
 A quick SEO note - while it's never good to have a 404 response, it appears based on [Search Engine Land's testing][seoLand] that Google's crawler will treat the JavaScript `window.location` redirect in the `404.html` file the same as a 301 redirect for its indexing. From my testing I can confirm that Google will index all pages without issue, the only caveat is that the redirect query is what Google indexes as the url. For example, the url `example.tld/about` will get indexed as `example.tld/?p=/about`. When the user clicks on the search result, the url will change back to `example.tld/about` once the site loads.
 

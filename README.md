@@ -10,19 +10,19 @@
 
 2. 자신의 repository로 바꿔주기
   
-  $ cd reactapp
+    $ cd reactapp
 
-  $ rm -rf .git
+    $ rm -rf .git
 
-  $ git init
+    $ git init
 
-  $ git add .
+    $ git add .
 
-  $ git commit -m '버전이름'
+    $ git commit -m '버전이름'
 
-  $ git branch -m gh-pages 
+    $ git branch -m gh-pages 
 
-  $ git remote add origin <repository url>
+    $ git remote add origin <repository url>
 
 3. repository basename 지정해주기
     텍스트 에디터를 이용해 /Src/index.js로 이동

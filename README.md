@@ -9,26 +9,34 @@
 1. Clone하기 ($ git clone https://github.com/oneybee/reactapp.git)
 
 2. 자신의 repository로 바꿔주기
+  
   $ cd reactapp
+
   $ rm -rf .git
+
   $ git init
+
   $ git add .
+
   $ git commit -m '버전이름'
+
   $ git branch -m gh-pages 
+
   $ git remote add origin <repository url>
 
 3. repository basename 지정해주기
-  텍스트 에디터를 이용해 /Src/index.js로 이동
+    텍스트 에디터를 이용해 /Src/index.js로 이동
    
-  ReactDOM.render(
-  <BrowserRouter basename="/reactapp">
+    ReactDOM.render(
+    <BrowserRouter basename="/reactapp">
 
-  "/reactapp" => "/repository 이름"  으로 변경해주기
+    "/reactapp" => "/repository 이름"  으로 변경해주기
 
 4. index.html에서 <script src="/reactapp/build/bundle.js"></script>
   "/build/bundle/js" => "/repositoryname/build/bundle.js" 로 변경해주기
 
 5. $ npm instal
+
    $ npm run build
 
 6. add -> commit -> push 진행하기
